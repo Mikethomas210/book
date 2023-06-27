@@ -1,0 +1,52 @@
+
+{%extends "user/layout.html"%}
+
+{% block header %}{%endblock%}
+
+{% block content %}
+<h1>Please complete this form </h1>
+<div class="content" style="background-color:white;padding:3em">
+    <form action="" method="post">
+        <div class="mb-3">
+            <input type="text" name="fulllname" value="
+            {% if userdeets%}
+            {{userdeets.user_fullname}}
+            {%endif%}" placeholder="Your Name">
+
+        </div>
+
+        <div class="mb-3">
+            <input type="text" name="email" value="
+            {% if userdeets%}
+            {{userdeets.user_email}}
+            {%endif%}" placeholder="Your email">
+
+        </div>
+        <div class="mb-3">
+            <input type="hidden" value="{{ csrf_token()}}" name="csrf_token">
+            <input type="hidden" value="
+            {%if userdeets%}
+            {{userdeets.user_id}} {%endif%}">
+            
+            <input type="number" name="amount" placeholder="Amount">
+            </div>
+
+            <div class="mb-3">
+                <button class="btn btn-primary">continue</button>
+
+            </div>
+
+    
+
+    </form>
+
+
+</div>
+    
+
+
+
+{% block morecontent %}{% endblock morecontent%} 
+{% endblock  %}
+
+ 
